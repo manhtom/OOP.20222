@@ -8,7 +8,10 @@ import javax.swing.*;
 //this method is implemented with javax.swing
 
 public class SecondDegree {
-    public static void solveEqn(){ //single variable equation solving
+    public SecondDegree(){
+        //
+    }
+    public void solveEqn(){ //single variable equation solving
         double a=Double.parseDouble(JOptionPane.showInputDialog(null,"You've selected to solve a single variable 2nd-degree equation. The equation form is ax^2+bx+c=0.\n Please enter the coefficient a:"));
         double b=Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter the coefficient b: "));
         double c=Double.parseDouble(JOptionPane.showInputDialog(null,"Please enter the coefficient c: "));
