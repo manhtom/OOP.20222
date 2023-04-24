@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class FirstDegree {
     public FirstDegree(){ 
-    //
+        //
     }
     public void solveEqn(){ //single variable equation solving
         double a = Float.parseFloat(JOptionPane.showInputDialog(null, "You've selected to solve a single variable 1st-degree equation.\nThe equation to solve will have the form: ax+b=0.\nPlease enter a:"));
