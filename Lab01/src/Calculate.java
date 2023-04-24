@@ -1,4 +1,8 @@
-//import java.util.*;
+// A program that calculates sum, difference, product and quotient of 2 double numbers inputted from users' keyboard.
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
 
 public class Calculate {
@@ -13,7 +17,6 @@ public class Calculate {
         if (b!=0) { // display the results rounded to 2 decimal places
             double quoti=a/b;
             JOptionPane.showMessageDialog(null, String.format("The sum of a and b is %.2f\nThe difference of a and b is %.2f\nThe product of a and b is %.2f\nThe quotient of a and b is %.2f",sum,diff,prod,quoti)); 
-            ; 
         }
         else { // handle the case where divisor = 0
             JOptionPane.showMessageDialog(null, String.format("The sum of a and b is %.2f\nThe difference of a and b is %.2f\nThe product of a and b is %.2f\nThe quotient of a and b is undefined because the divisor is equal to 0",sum,diff,prod)); 

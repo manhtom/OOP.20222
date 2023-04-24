@@ -1,3 +1,8 @@
+// A program that displays how many days in a month given user input.
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
 
 public class NumberOfDays {
@@ -9,7 +14,7 @@ public class NumberOfDays {
 
     private static int[] input() {
         int[] input=new int[2];
-        String input1=JOptionPane.showInputDialog(null, "Please enter the month\nNote: You must either enter the month in its full or its abbreviation/first 3 letters/number.\nFor example, the valid inputs of February are February, Feb., Feb, and 2.");
+        String input1=JOptionPane.showInputDialog(null, "Please enter the month.\nNote: You must either enter the month in its full or its abbreviation/first 3 letters/number.\nFor example, the valid inputs of February are February, Feb., Feb, and 2.");
         while (Month.getMonthIndex(input1) <= 0) { // let users enter until the input is valid
             input1=JOptionPane.showInputDialog(null, "The month you've entered is invalid. Please try again. \nNote: You must either enter the month in full or its abbreviation/first 3 letters/number.\nFor example, the valid inputs of February are February, Feb., Feb, and 2.");
         }

@@ -1,3 +1,6 @@
+//  Java class - implementing all the array manipulation methods as required
+//  Written by manhtom in April 2023.
+
 import java.util.Arrays;
 
 public class ArrayManipulation {
@@ -5,10 +8,12 @@ public class ArrayManipulation {
     public ArrayManipulation(int[] input){ 
         arr = input;
     }
-    public String displayArray(){
+
+    public String displayArray(){ // print out the inserted array
         return Arrays.toString(arr);
     }
-    public int[] BubbleSort(){
+    
+    public int[] sort(){ // bubble sort algorithm
         int temp=0;
         while (true){
             int swapped=0;
@@ -24,6 +29,7 @@ public class ArrayManipulation {
         }
         return arr;
     }
+
     public int calcSum(){
         int result=0;
         for (int i=0;i<arr.length;i++){

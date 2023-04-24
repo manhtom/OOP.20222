@@ -1,16 +1,21 @@
+//  A program to add two matrices of same size.
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
 
 public class MatrixAddition {
     public static void main(String[] args) {
-        int[] input=inputSize();
+        int[] input=inputSize(); // input matrix size
         int row=input[0];
         int col=input[1];
-        float[][][] matrix = inputElement(row, col);
+        float[][][] matrix = inputElement(row, col); // input matrix elements
         float[][] a=matrix[0];
         float[][] b=matrix[1];
 
         String result="";
-        for (int i=0;i<row;i++) {
+        for (int i=0;i<row;i++) { //processing the resulting matrix
             for (int j=0;j<col;j++) {
                 a[i][j]=a[i][j]+b[i][j];
                 result=result+a[i][j];

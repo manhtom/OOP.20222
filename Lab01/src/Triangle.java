@@ -1,3 +1,7 @@
+//  A program to display a triangle of a height of n stars (n inputted from users' keyboard)
+
+//  Written by manhtom in April 2023.
+
 import java.util.*;
 
 public class Triangle {
@@ -15,7 +19,6 @@ public class Triangle {
                 star=star+"*";
             }
             System.out.printf(d,star);
-
         }
     }
 }

@@ -1,7 +1,12 @@
+// Java class that implements various functions relating to calendar month
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
 
 public class Month {
-    public static int getMonthIndex(String m){
+    public static int getMonthIndex(String m){ // check month input validty and return numeric index of a month if valid
         if (m.equals("Jan") || m.equals("Jan.") || m.equals("January") || m.equals("1")){
             return 1;
         }

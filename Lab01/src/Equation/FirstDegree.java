@@ -1,11 +1,15 @@
-//import java.util.*;
+// Java class that implements solving first degree equations/systems of equations.
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
 
 public class FirstDegree {
-    public FirstDegree(){ //constructor
+    public FirstDegree(){ 
     //
     }
-    public void solveEqn(){
+    public void solveEqn(){ //single variable equation solving
         double a = Float.parseFloat(JOptionPane.showInputDialog(null, "You've selected to solve a single variable 1st-degree equation.\nThe equation to solve will have the form: ax+b=0.\nPlease enter a:"));
         double b = Float.parseFloat(JOptionPane.showInputDialog(null, "Please enter b:"));
 
@@ -21,8 +25,8 @@ public class FirstDegree {
             JOptionPane.showMessageDialog(null,"This equation has a unique solution: "+String.format("%.2f",(-b/a)));
         }
     }
-    public static void solveEqn(double a,double b){
-        JOptionPane.showMessageDialog(null,"As a=0, the equation has become a single variable 1st-deg equation with the form: bx+c=0.\nIt will be solved as any typical single variable 1st-deg equation.");
+    public static void solveEqn(double a,double b){//single variable equation solving (handling case where a=0 during 2nd-deg equation input)
+        JOptionPane.showMessageDialog(null,String.format("As a=0, the equation has become a single variable 1st-deg equation with the form: %.2fx+%.2f=0.\nIt will be solved as any typical single variable 1st-deg equation.",a,b));
         if (a==0){
             if (b==0){
                 JOptionPane.showMessageDialog(null,"This equation has infinite solutions.");
@@ -35,7 +39,7 @@ public class FirstDegree {
             JOptionPane.showMessageDialog(null,"This equation has a unique solution: "+String.format("%.2f",(-b/a)));
         }
     }
-    public void solveEqnSys(){
+    public void solveEqnSys(){ // system of equations with 2 variables
         int j=0;
         float[] input=new float[6];
         for (int k=1; k<=2; k++){ // this one is a bit different from above methods as the form of equation is displayed throughout user input process instead of just the first input dialog. 
@@ -50,10 +54,17 @@ public class FirstDegree {
             input[j]=temp;
             j++;
 
-        } // we use Cramer determinant to solve this type of equation
+        }
+
+        // we use Cramer determinant to solve this type of equation
         float D=input[0]*input[4]-input[3]*input[1];
         float Dx=input[2]*input[4]-input[5]*input[1];
         float Dy=input[0]*input[5]-input[3]*input[2];
+        // handle the case where at least one equation produces incorrect expression e.g. 0=1
+        if ((input[0] == input[1] && input[0] == 0 && input[2] != 0) || (input[3] == input[4] && input[3] == 0 && input[5] != 0)){
+            JOptionPane.showMessageDialog(null,"This system of equations has no solution.");
+            return;
+        }
         if (D==0){
             if (Dx !=0 || Dy !=0){
                JOptionPane.showMessageDialog(null,"This system of equations has no solution.");

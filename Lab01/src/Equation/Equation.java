@@ -1,5 +1,12 @@
+//  An equation-solving program. Supports:
+//  - Single variable first degree equation
+//  - Two variable system of first degree equations
+//  - Single variable second degree equation
+
+//  Written by manhtom in April 2023.
+//  GUI implemented in Swing
+
 import javax.swing.*;
-//import java.util.*;
 
 public class Equation{
     public static void main(String[] args){
@@ -20,7 +27,7 @@ public class Equation{
         }
         
         else{
-            FirstDegree eqn=new FirstDegree();
+            SecondDegree eqn=new SecondDegree();
             eqn.solveEqn();
         }
     }
