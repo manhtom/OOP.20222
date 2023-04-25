@@ -22,12 +22,12 @@ public class Array {
         k=Integer.parseInt(JOptionPane.showInputDialog(null, "You are about to enter an array.\nFirst, please enter k (number of elements in the array).\nNote: k must be a positive integer number"));
         while (k<=0){ // let users input until k is valid
             k=Integer.parseInt(JOptionPane.showInputDialog(null, "k is invalid. Please enter k again.\nNote: k must be a positive integer number"));
-            }
+        }
         int[] input=new int[k];
         for (int i=1;i<=k;i++){ // entering elements
             int keyboard=Integer.parseInt(JOptionPane.showInputDialog(null, String.format("Please enter the element #%d",i)));
             input[i-1]=keyboard;
-            }
+        }
         return input;
     }
 }
