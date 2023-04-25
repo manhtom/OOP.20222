@@ -21,7 +21,7 @@ public class NumberOfDays {
         String input2=JOptionPane.showInputDialog(null, "Please enter the year.\nNote: The year must be a non-negative number with all the digits. For example: the year 1999 must be entered as 1999, not 99.");
 
         while (Year.checkYear(input2) == false) { // let users enter until the input is valid
-                input2=JOptionPane.showInputDialog(null, "The year you've entered is invalid. Please try again.\nNote: The year must be a non-negative number with all the digits. For example: the year 1999 must be entered as 1999, not 99.");
+            input2=JOptionPane.showInputDialog(null, "The year you've entered is invalid. Please try again.\nNote: The year must be a non-negative number with all the digits. For example: the year 1999 must be entered as 1999, not 99.");
         }
         input[0]=Month.getMonthIndex(input1); //get month numeric index
         input[1]=Integer.parseInt(input2); //convert year input string to int
