@@ -25,7 +25,9 @@ public class ArrayManipulation {
                     swapped=1;
                 }
             }
-            if (swapped==0){break;}
+            if (swapped==0){
+                break;
+            }
         }
         return arr;
     }
