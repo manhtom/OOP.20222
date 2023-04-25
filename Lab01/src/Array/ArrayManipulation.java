@@ -30,8 +30,8 @@ public class ArrayManipulation {
         return arr;
     }
 
-    public int calcSum(){
-        int result=0;
+    public float calcSum(){ // return float in order to avoid rounding error when calculating average
+        float result=0;
         for (int i=0;i<arr.length;i++){
             result=result+this.arr[i];
         }

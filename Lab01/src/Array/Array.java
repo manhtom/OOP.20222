@@ -12,7 +12,8 @@ public class Array {
     int[] input;
     input=input();
     ArrayManipulation arr=new ArrayManipulation(input);
-    JOptionPane.showMessageDialog(null,String.format("This is the array you've entered: %s%nThe sorted array is: %s%nSum of all elements in the array is %d%nAverage value of all elements in the array is %.2f%n",arr.displayArray(),Arrays.toString(arr.sort()),arr.calcSum(),arr.calcAverage()));
+    // all results rounded to 2 decimal places
+    JOptionPane.showMessageDialog(null,String.format("This is the array you've entered: %s%nThe sorted array is: %s%nSum of all elements in the array is %.2f%nAverage value of all elements in the array is %.2f%n",arr.displayArray(),Arrays.toString(arr.sort()),arr.calcSum(),arr.calcAverage()));
     }
 
 private static int[] input(){
