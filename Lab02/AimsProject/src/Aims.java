@@ -16,11 +16,11 @@ public class Aims {
 		// print total cost of the items in the cart
 		System.out.println("Total cost is: "+ anOrder.totalCost());
 		
-		// remove dvd1 and dvd3 from the cart
+		// empty the cart
 		System.out.println("Now emptying the cart...");
 		anOrder.removeDigitalVideoDisc(dvd1);
 		anOrder.removeDigitalVideoDisc(dvd3);
-		anOrder.removeDigitalVideoDisc(dvd3); // test if it can detect the user is removing a non-existent dvd
+		anOrder.removeDigitalVideoDisc(dvd3); // user is removing a non-existent dvd
 		anOrder.removeDigitalVideoDisc(dvd2);
 		anOrder.removeDigitalVideoDisc(dvd2); // user is removing dvd from an empty cart
 
