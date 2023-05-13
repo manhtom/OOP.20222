@@ -17,13 +17,16 @@ public class Aims {
 		System.out.println("Total cost is: "+ anOrder.totalCost());
 		
 		// remove dvd1 and dvd3 from the cart
-		System.out.println("Now removing dvd1 and dvd3...");
+		System.out.println("Now emptying the cart...");
 		anOrder.removeDigitalVideoDisc(dvd1);
 		anOrder.removeDigitalVideoDisc(dvd3);
+		anOrder.removeDigitalVideoDisc(dvd3); // test if it can detect the user is removing a non-existent dvd
+		anOrder.removeDigitalVideoDisc(dvd2);
+		anOrder.removeDigitalVideoDisc(dvd2); // user is removing dvd from an empty cart
 
 		// check total cost of the cart to see if the dvd(s) has been removed
-		if (anOrder.totalCost()+dvd1.getCost()+dvd3.getCost() == dvd1.getCost()+dvd2.getCost()+dvd3.getCost()) {
-			System.out.println("Re-check: dvd1 and dvd3 have been properly removed.");
+		if (anOrder.totalCost() == 0) {
+			System.out.println("Re-check: dvd1, dvd2, dvd3 have been properly removed.");
 		}
 	}
 }
