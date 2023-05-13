@@ -4,6 +4,7 @@ public class Cart {
 	private DigitalVideoDisc[] itemsOrdered=new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 
 	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+		// this will add a single copy of the disc each time it's run. must run multiple times to add multiple copies of the same disc
 		if (this.qtyOrdered == MAX_NUMBERS_ORDERED) {
 			System.out.println("The cart is full. Please remove some discs to continue.");
 			return;
@@ -15,6 +16,7 @@ public class Cart {
 		}		
 	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+		// this will remove a single copy of the disc each time it's run. must run multiple times to remove multiple copies of the same disc
 		// we will recreate a new itemsOrdered array without the removed dvds
 	
 		DigitalVideoDisc[] newItemsOrdered= new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
