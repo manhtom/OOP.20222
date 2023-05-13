@@ -13,7 +13,7 @@ public class Cart {
 			this.itemsOrdered[qtyOrdered] = disc;
 			this.qtyOrdered++;
 			System.out.println("The disc '" + disc.getTitle() + "' has successfully been added to cart.");
-		}		
+		}
 	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		// this will remove a single copy of the disc each time it's run. must run multiple times to remove multiple copies of the same disc
