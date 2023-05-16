@@ -20,18 +20,18 @@ public class Cart {
 		// we will recreate a new itemsOrdered array without the removed dvds
 	
 		DigitalVideoDisc[] newItemsOrdered= new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-		int k = 0; // this is the index for newItemsOrdered
-		int removed = 0;
+		int k = 0; // the index for newItemsOrdered
+		int removed = 0; // removal flag
 	
 		for (int i=0; i < MAX_NUMBERS_ORDERED ; i++) {
-			if (this.itemsOrdered[i] != disc) {
+			if (this.itemsOrdered[i] != disc || (this.itemsOrdered[i] == disc && removed == 1)) {
 				newItemsOrdered[k] = this.itemsOrdered[i];
 				k++;
 			}
 			else {
 				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from cart.");
 				this.qtyOrdered-=1;
-				removed = 1;
+				removed = 1; // trigger the flag
 			}
 		}
 		this.itemsOrdered = newItemsOrdered;
