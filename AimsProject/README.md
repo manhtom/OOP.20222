@@ -11,5 +11,5 @@ the application needs an entry point for displaying to and taking input from the
 Please find the source code in the `src` folder:
 
 - [The <i>Aims</i> class which provides a main() method which interacts with the rest of the system](src/Aims.java)
-- [The <i>DigitalVideoDisc</i> class which stores the title, category, cost, director and length](src/DigitalVideoDisc)
+- [The <i>DigitalVideoDisc</i> class which stores the title, category, cost, director and length](src/DigitalVideoDisc.java)
 - [The <i>Cart</i> class to maintain an array of these DigitalVideoDisc objects](src/Cart.java)

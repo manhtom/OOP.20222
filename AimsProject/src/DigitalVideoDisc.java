@@ -1,4 +1,6 @@
 public class DigitalVideoDisc {
+	private static int nbDigitalVideoDiscs = 0;
+	private int id;
 	private String title;
 	private String category;
 	private String director;
@@ -6,11 +8,13 @@ public class DigitalVideoDisc {
 	private float cost;
 
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+		nbDigitalVideoDiscs++;
 		this.title = title;
 		this.category=category;
 		this.director=director;
 		this.length=length;
 		this.cost=cost;
+		this.id=nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title) {
 		this.title = title;
@@ -26,6 +30,9 @@ public class DigitalVideoDisc {
 		this.director=director;
 		this.cost=cost;
 	}
+	public int getID() {
+		return id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -40,5 +47,38 @@ public class DigitalVideoDisc {
 	}
 	public float getCost() {
 		return cost;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void swap(DigitalVideoDisc dvd) {
+		this.title = dvd.getTitle();
+		this.category = dvd.getCategory();
+		this.director = dvd.getDirector();
+		this.length = dvd.getLength();
+		this.cost = dvd.getCost();
+		this.id = dvd.getID();
+	}
+
+	public String getDetail(){
+		return String.format("DVD - %s - %s - %s - %s minutes: %.2f $", this.getTitle(),this.getCategory(), this.getDirector(), this.getLength(), this.getCost());
+	}
+
+	public boolean search(String title) {
+		if (this.title == title) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean search(int id) {
+		if (this.id == id) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }
