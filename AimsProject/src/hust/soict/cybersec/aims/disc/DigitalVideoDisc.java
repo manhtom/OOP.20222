@@ -1,3 +1,5 @@
+package hust.soict.cybersec.aims.disc;
+
 public class DigitalVideoDisc {
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;
