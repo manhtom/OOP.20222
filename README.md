@@ -1,6 +1,6 @@
 # OOP.20222 (Lab)
 
-Object-oriented Programming 20222 Lab @ HUST (April 2023 - June 2023)
+Object-oriented Programming 20222 Lab @ HUST <i>(April 2023 - June 2023)</i>
 
 Please find the work in the corresponding folders.
 
