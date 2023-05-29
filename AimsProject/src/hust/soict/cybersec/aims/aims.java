@@ -1,4 +1,4 @@
-public class Aims {
+public class aims {
 
 	public static void main(String[] args) {
 		// create a new cart
