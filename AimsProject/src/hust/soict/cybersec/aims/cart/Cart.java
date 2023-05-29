@@ -1,3 +1,6 @@
+package hust.soict.cybersec.aims.cart;
+import hust.soict.cybersec.aims.disc.*;
+
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private int qtyOrdered=0;
