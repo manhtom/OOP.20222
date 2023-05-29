@@ -73,7 +73,7 @@ public class Cart {
 		System.out.println("***********************CART***********************");
 		if (qtyOrdered > 0) {
 			System.out.println("Ordered Items:");
-			for (int i=0; i<qtyOrdered; i++){
+			for (int i=0; i < qtyOrdered; i++){
 				System.out.printf("%d. %s%n", i+1, this.itemsOrdered[i].getDetail());
 			}
 			System.out.printf("Total cost: %.2f%n", totalCost());
