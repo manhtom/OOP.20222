@@ -30,6 +30,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#...
-.astah.lock
-.class
+# java/astah specific files
+*.astah.lock
+*.class
