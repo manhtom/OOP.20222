@@ -18,8 +18,8 @@ public class GarbageCreator {
             for (byte b : inputBytes) {
                 outputString += (char)b;
             }
-        endTime=System.currentTimeMillis();
-        System.out.println("Processing time for '+' operator: "+ (endTime-startTime)+"ms");
+            endTime=System.currentTimeMillis();
+            System.out.println("Processing time for '+' operator: "+ (endTime-startTime)+"ms");
         }
 
         catch (IOException e) {
