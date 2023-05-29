@@ -7,4 +7,4 @@ Please find the work in the corresponding folders.
 - `AimsProject` folder: main work on AIMS Project (Lab02-Lab05)
 - `OtherProject` folder: other submissions
 
-Open the respository in [Eclipse](https://eclipseide.org/) for the best experience.
+Open the repository in [Eclipse](https://eclipseide.org/) for the best experience.
