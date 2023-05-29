@@ -7,4 +7,4 @@ decides to see it. The DVD with its information and functions is modeled with th
 - [The <i>DigitalVideoDisc</i> class which stores the title, category, cost, director and length](src/hust/soict/cybersec/aims/disc/DigitalVideoDisc.java)
 - [The <i>Cart</i> class to maintain the customer's cart (an array of DigitalVideoDisc objects)](src/hust/soict/cybersec/aims/cart/Cart.java)
 - [The <i>Store</i> class to maintain a list of DVDs available in the store (an array of DigitalVideoDisc objects)](src/hust/soict/cybersec/aims/store/Store.java)
-- [The <i>test</i> package which contains various test programs to try out the system's features](src/hust/soict/cybersec/aims/store/Store.java)
+- [The <i>test</i> package which contains various test programs to try out the system's features](src/hust/soict/cybersec/test)
