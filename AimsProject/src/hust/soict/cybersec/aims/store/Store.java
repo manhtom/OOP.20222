@@ -9,7 +9,7 @@ public class Store {
     }
 
     public void removeDVD(DigitalVideoDisc disc) {
-		DigitalVideoDisc[] newItemsInStore= new DigitalVideoDisc[1000];
+		DigitalVideoDisc[] newItemsInStore = new DigitalVideoDisc[1000];
 		int k = 0; // the index for newItemsOrdered
 		int removed = 0; // removal flag
 	

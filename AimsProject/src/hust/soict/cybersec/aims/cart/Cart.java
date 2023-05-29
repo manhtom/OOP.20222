@@ -18,8 +18,8 @@ public class Cart {
 	}
 
 	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList){ // add a list of DVDs to the current cart
-		for (int i = 0; i < dvdList.length; i++) {
-			addDigitalVideoDisc(dvdList[i]);
+		for (DigitalVideoDisc i : dvdList) {
+			addDigitalVideoDisc(i);
 		}
 	}
 
@@ -33,7 +33,7 @@ public class Cart {
 		// this will remove a single copy of the disc each time it's run. must run multiple times to remove multiple copies of the same disc
 		// we will recreate a new itemsOrdered array without the removed dvds
 	
-		DigitalVideoDisc[] newItemsOrdered= new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+		DigitalVideoDisc[] newItemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 		int k = 0; // the index for newItemsOrdered
 		int removed = 0; // removal flag
 	
@@ -85,32 +85,32 @@ public class Cart {
 	}
 
 	public void search(String title) {
-		int k = 0;
+		int k = 0; // matching flag
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", title);
 		for (int i=0; i < qtyOrdered ; i++) {
-			if (this.itemsOrdered[i].search(title)) {
-				System.out.printf("%s%n", this.itemsOrdered[i].getDetail());
-				k = 1;
+			if (itemsOrdered[i].search(title)) {
+				System.out.printf("%s%n", itemsOrdered[i].getDetail());
+				k = 1; // flag triggers when there is a matching
 			}
 		}
-		if (k == 0) {
+		if (k == 0) { // no matching
 			System.out.println("No results");
 		}
 		System.out.println("");
 	}
 
 	public void search(int id) {
-		int k = 0;
+		int k = 0; // matching flag
 		System.out.println("");
 		System.out.printf("Search results for ID %d:%n", id);
 		for (int i=0; i < qtyOrdered ; i++) {
-			if (this.itemsOrdered[i].search(id)) {
-				System.out.printf("%s%n", this.itemsOrdered[i].getDetail());
-				k = 1;
+			if (itemsOrdered[i].search(id)) {
+				System.out.printf("%s%n", itemsOrdered[i].getDetail());
+				k = 1; // flag triggers when there is a matching
 			}
 		}
-		if (k == 0) {
+		if (k == 0) { // no matching
 			System.out.println("No results");
 		}
 		System.out.println("");
