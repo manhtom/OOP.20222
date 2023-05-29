@@ -43,9 +43,9 @@ public class Cart {
 				k++;
 			}
 			else {
-				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from cart.");
 				this.qtyOrdered-=1;
 				removed = 1; // trigger the flag
+				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from cart.");
 			}
 		}
 		this.itemsOrdered = newItemsOrdered; // operate directly on the object
