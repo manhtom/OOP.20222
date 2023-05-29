@@ -14,9 +14,9 @@ public class NoGarbage {
         try {
             inputBytes = Files.readAllBytes(Paths.get(filename));
             startTime= System.currentTimeMillis();
-            StringBuffer outputStringBuilder = new StringBuffer();
+            StringBuffer outputStringBuffer = new StringBuffer();
             for (byte b : inputBytes) {
-                outputStringBuilder.append((char)b);
+                outputStringBuffer.append((char)b);
             }
             endTime=System.currentTimeMillis();
             System.out.println("Processing time for StringBuffer: "+ (endTime-startTime)+"ms");
@@ -25,6 +25,5 @@ public class NoGarbage {
         catch (IOException e) {
             System.out.println("File not found. Ensure the path is correct.");
         }
-
     }
 }

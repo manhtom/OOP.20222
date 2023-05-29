@@ -13,14 +13,14 @@ public class CartTest {
 
         System.out.println("");
         
-        // print everything in the order
+        // test print method
         anOrder.print();
 
         System.out.println("");
     
-        // search
+        // test search method
         anOrder.search("Aladdin");
         anOrder.search("Cinderella");
-        anOrder.search(2);
+        anOrder.search(1);
     }
 }

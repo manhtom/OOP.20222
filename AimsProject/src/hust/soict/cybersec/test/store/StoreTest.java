@@ -10,8 +10,10 @@ public class StoreTest {
         aStore.addDVD(dvd2);
         aStore.addDVD(dvd3);
 
-        //remove "Aladdin" from store
+        //remove "Aladdin" and "The Lion King" from store
         aStore.removeDVD(dvd3);
+        aStore.removeDVD(dvd3); // attempt to trigger the error message
+        aStore.removeDVD(dvd1);
 
     }
 }

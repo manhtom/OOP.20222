@@ -9,19 +9,19 @@ public class Store {
     }
 
     public void removeDVD(DigitalVideoDisc disc) {
-		DigitalVideoDisc[] newItemsInStore= new DigitalVideoDisc[qty-1];
+		DigitalVideoDisc[] newItemsInStore= new DigitalVideoDisc[1000];
 		int k = 0; // the index for newItemsOrdered
 		int removed = 0; // removal flag
 	
-		for (int i=0; i < qty ; i++) {
+		for (int i=0; i < 1000 ; i++) {
 			if (this.itemsInStore[i] != disc || (this.itemsInStore[i] == disc && removed == 1)) {
 				newItemsInStore[k] = this.itemsInStore[i];
 				k++;
 			}
 			else {
-				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from store.");
-				this.qty-=1;
+				this.qty--;
 				removed = 1; // trigger the flag
+				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from store.");
 			}
 		}
 		this.itemsInStore = newItemsInStore; // operate directly on the object
@@ -31,7 +31,7 @@ public class Store {
 				System.out.println("The disc '" + disc.getTitle() + "' is not available in the store. The store is currently empty.");
 				return;
 			}
-			else { // the cart has something
+			else { // if the store has something
 				System.out.println("The disc '" + disc.getTitle() + "' is not available in the store. You can only remove what is in the store.");
 			}
 		}

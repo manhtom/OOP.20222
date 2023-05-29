@@ -40,4 +40,4 @@ public class ConcatenationInLoops {
         endTime = System.currentTimeMillis();
         System.out.println("Processing time for string concatenation using StringBuffer: "+ (endTime-startTime)+"ms");
     }
- }
+}

@@ -17,18 +17,24 @@ public class DigitalVideoDisc {
 		this.id=nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title) {
+		nbDigitalVideoDiscs++;
 		this.title = title;
+		this.id=nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
+		nbDigitalVideoDiscs++;
 		this.title = title;
 		this.category=category;
 		this.cost=cost;
+		this.id=nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
+		nbDigitalVideoDiscs++;
 		this.title = title;
 		this.category=category;
 		this.director=director;
 		this.cost=cost;
+		this.id=nbDigitalVideoDiscs;
 	}
 	public int getID() {
 		return id;
