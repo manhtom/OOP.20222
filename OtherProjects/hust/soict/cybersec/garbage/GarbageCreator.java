@@ -1,3 +1,5 @@
+// test text file contains nearly 100k words. May take a while...especially when "+" operator is used...
+
 package garbage;
 
 import java.io.IOException;
@@ -12,10 +14,10 @@ public class GarbageCreator {
         try {
             inputBytes = Files.readAllBytes(Paths.get(filename));
             startTime= System.currentTimeMillis();
-        String outputString = "";
-        for (byte b : inputBytes) {
-            outputString += (char)b;
-        }
+            String outputString = "";
+            for (byte b : inputBytes) {
+                outputString += (char)b;
+            }
         endTime=System.currentTimeMillis();
         System.out.println("Processing time for '+' operator: "+ (endTime-startTime)+"ms");
         }

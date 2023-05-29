@@ -1,3 +1,5 @@
+// test text file contains nearly 100k words. No problem for StringBuffer...
+
 package garbage;
 
 import java.io.IOException;
@@ -12,12 +14,12 @@ public class NoGarbage {
         try {
             inputBytes = Files.readAllBytes(Paths.get(filename));
             startTime= System.currentTimeMillis();
-        StringBuilder outputStringBuilder = new StringBuilder();
-        for (byte b : inputBytes) {
-            outputStringBuilder.append((char)b);
-        }
-        endTime=System.currentTimeMillis();
-        System.out.println("Processing time for StringBuilder: "+ (endTime-startTime)+"ms");
+            StringBuffer outputStringBuilder = new StringBuffer();
+            for (byte b : inputBytes) {
+                outputStringBuilder.append((char)b);
+            }
+            endTime=System.currentTimeMillis();
+            System.out.println("Processing time for StringBuffer: "+ (endTime-startTime)+"ms");
         }
 
         catch (IOException e) {
