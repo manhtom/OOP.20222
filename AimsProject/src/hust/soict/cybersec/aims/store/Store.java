@@ -1,10 +1,6 @@
 public class Store {
-    private DigitalVideoDisc itemsInStore[];
+    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[1000];
     private int qty = 0;
-
-    public Store() {
-        itemsInStore=new DigitalVideoDisc[1000];
-    }
 
     public void addDVD(DigitalVideoDisc disc) {
         itemsInStore[qty]=disc;
