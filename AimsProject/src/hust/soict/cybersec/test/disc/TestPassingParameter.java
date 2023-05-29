@@ -4,11 +4,11 @@ public class TestPassingParameter {
         DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
 
         swap(jungleDVD, cinderellaDVD);
-        System.out.println("Jungle DVD title: "+ jungleDVD.getTitle());
         System.out.println("Cinderella DVD title: "+ cinderellaDVD.getTitle());
-
-        changeTitle(jungleDVD, cinderellaDVD.getTitle());
         System.out.println("Jungle DVD title: "+ jungleDVD.getTitle());
+        changeTitle(jungleDVD, cinderellaDVD.getTitle()); 
+        //expected result: Jungle DVD title = Jungle. two swaps occurred so its title is back to the original name
+        System.out.println("Jungle DVD title: "+ jungleDVD.getTitle()); 
     }
 
     public static void swap(Object o1, Object o2) { // incorrect method

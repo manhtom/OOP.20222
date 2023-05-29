@@ -1,0 +1,8 @@
+1. After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain? 
+During runtime, the reference to jungleDVD and cinderellaDVD is copied to separate method variables instead of referencing directly to variables containing the aforementioned object references (jungleDVD,  cinderellaDVD). Then the method variables are assigned with references to another object - they no longer reference to the object passed by parameter. Therefore the two objects (jungleDVD and cinderellaDVD) stay intact.
+
+2. After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+Because in this case, instead of assigning the method variable to another object reference like in the first question, we stay with the object reference passed by parameter and call its setter. By doing so, we operate directly on the object - the object attribute is modified - so the title of JungleDVD is changed.
+
+3. Is JAVA a Pass by Value or a Pass by Reference programming language?
+It is a pass-by-value language, as evidenced by the answers to the above two questions.
