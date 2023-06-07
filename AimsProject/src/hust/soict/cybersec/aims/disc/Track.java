@@ -1,3 +1,5 @@
+package hust.soict.cybersec.aims.disc;
+
 public class Track {
     private String title;
     private int length;

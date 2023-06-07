@@ -1,7 +1,5 @@
 package hust.soict.cybersec.aims.disc;
 
-import java.net.CacheRequest;
-
 public class DigitalVideoDisc extends Disc {
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;
@@ -51,11 +49,11 @@ public class DigitalVideoDisc extends Disc {
 	}
 
 	public void swap(DigitalVideoDisc dvd) {
-		this.title = dvd.getTitle();
-		this.category = dvd.getCategory();
+		super.setTitle(dvd.getTitle());
+		super.setCategory(dvd.getCategory());
 		this.director = dvd.getDirector();
 		this.length = dvd.getLength();
-		this.cost = dvd.getCost();
+		super.setCost(dvd.getCost());
 		this.id = dvd.getID();
 	}
 
@@ -64,7 +62,7 @@ public class DigitalVideoDisc extends Disc {
 	}
 
 	public boolean search(String title) {
-		if (this.title == title) {
+		if (super.getTitle() == title) {
 			return true;
 		}
 		else {
