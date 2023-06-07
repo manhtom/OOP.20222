@@ -26,7 +26,7 @@ public class Cart {
             return true;
         }
         else {
-            System.out.println("Unable to removed product: "+media.getTitle()+" because the product is not in the cart");
+            System.out.println("Unable to remove product: "+media.getTitle()+" because the product is not in the cart");
             return false;
         }
     }
