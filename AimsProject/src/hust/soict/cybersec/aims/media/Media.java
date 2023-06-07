@@ -3,6 +3,7 @@ package hust.soict.cybersec.aims.media;
 import java.time.LocalDate;
 
 public abstract class Media {
+    private int id;
     private String title;
     private String category;
     private float cost;
@@ -10,6 +11,10 @@ public abstract class Media {
 
     public Media() {
         // to do
+    }
+
+    public int getID() {
+        return id;
     }
 
     public String getTitle() {
@@ -26,6 +31,10 @@ public abstract class Media {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public void setID(int id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {

@@ -1,83 +1,52 @@
 package hust.soict.cybersec.aims.cart;
-import hust.soict.cybersec.aims.disc.*;
+
+import hust.soict.cybersec.aims.media.*;
+import java.util.*;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private int qtyOrdered=0;
-	private DigitalVideoDisc[] itemsOrdered=new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+	private List<Media> itemsOrdered=new ArrayList<Media>();
 
-	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-		// this will add a single copy of the disc each time it's run. must run multiple times to add multiple copies of the same disc
-		if (this.qtyOrdered == MAX_NUMBERS_ORDERED) {
-			System.out.println("The cart is full. Please remove some discs to continue.");
-			return;
-		}
+    public boolean addMedia(Media media) {
+        if (!itemsOrdered.contains(media)) {
+            itemsOrdered.add(media);
+            System.out.println("Added product: "+media.getTitle());
+            return true;
+        }
+        else {
+            System.out.println("Unable to add product: "+media.getTitle()+" because the product is already in the cart");
+            return false;
+        }
+    }
 
-		else {
-			this.itemsOrdered[qtyOrdered] = disc;
-			this.qtyOrdered++;
-			System.out.println("The disc '" + disc.getTitle() + "' has successfully been added to cart.");
-		}
-	}
-
-	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList){ // add a list of DVDs to the current cart
-		for (DigitalVideoDisc i : dvdList) {
-			addDigitalVideoDisc(i);
-		}
-	}
-
-	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) { // pass an arbitrary number of arguments for dvd (in this case 2)
-		// personally i prefer the method using array parameter because it's more flexible in terms of the number of dvds one wants to add
-		addDigitalVideoDisc(dvd1);
-		addDigitalVideoDisc(dvd2);
-	}
-
-	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		// this will remove a single copy of the disc each time it's run. must run multiple times to remove multiple copies of the same disc
-		// we will recreate a new itemsOrdered array without the removed dvds
-	
-		DigitalVideoDisc[] newItemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-		int k = 0; // the index for newItemsOrdered
-		int removed = 0; // removal flag
-	
-		for (int i=0; i < MAX_NUMBERS_ORDERED ; i++) {
-			if (this.itemsOrdered[i] != disc || (this.itemsOrdered[i] == disc && removed == 1)) {
-				newItemsOrdered[k] = this.itemsOrdered[i];
-				k++;
-			}
-			else {
-				this.qtyOrdered-=1;
-				removed = 1; // trigger the flag
-				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from cart.");
-			}
-		}
-		this.itemsOrdered = newItemsOrdered; // operate directly on the object
-
-		if (removed == 0) { // different messages shown to user depending on whether the cart is empty or not
-			if (this.qtyOrdered == 0) { // the cart is empty
-				System.out.println("The disc '" + disc.getTitle() + "' is not in the cart. The cart is currently empty.");
-				return;
-			}
-			else { // the cart has something
-				System.out.println("The disc '" + disc.getTitle() + "' is not in the cart. You can only remove what is in the cart.");
-			}
-		}
-	}
+    public boolean removeMedia(Media media) {
+        if (itemsOrdered.contains(media)) {
+            itemsOrdered.remove(media);
+            System.out.println("Removed product: "+media.getTitle());
+            return true;
+        }
+        else {
+            System.out.println("Unable to removed product: "+media.getTitle()+" because the product is not in the cart");
+            return false;
+        }
+    }
 	public float totalCost() {
 		float total=0;
-		for (int i=0; i < qtyOrdered ; i++) {
-			total+=this.itemsOrdered[i].getCost();
+		for (Media i : itemsOrdered) {
+			total+=i.getCost();
 		}
 		return total;
 	}
 
 	public void print() {
+		int k = 0;
 		System.out.println("");
 		System.out.println("***********************CART***********************");
-		if (qtyOrdered > 0) {
+		if (itemsOrdered.size() > 0) {
 			System.out.println("Ordered Items:");
-			for (int i=0; i < qtyOrdered; i++){
-				System.out.printf("%d. %s%n", i+1, this.itemsOrdered[i].getDetail());
+			for (Media i : itemsOrdered){
+				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
+				k++;
 			}
 			System.out.printf("Total cost: %.2f%n", totalCost());
 		}
@@ -91,9 +60,9 @@ public class Cart {
 		int k = 0; // matching flag
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", title);
-		for (int i=0; i < qtyOrdered ; i++) {
-			if (itemsOrdered[i].search(title)) {
-				System.out.printf("%s%n", itemsOrdered[i].getDetail());
+		for (Media i : itemsOrdered){
+			if (i.getTitle() == title) {
+				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
 				k = 1; // flag triggers when there is a matching
 			}
 		}
@@ -106,10 +75,10 @@ public class Cart {
 	public void search(int id) {
 		int k = 0; // matching flag
 		System.out.println("");
-		System.out.printf("Search results for ID %d:%n", id);
-		for (int i=0; i < qtyOrdered ; i++) {
-			if (itemsOrdered[i].search(id)) {
-				System.out.printf("%s%n", itemsOrdered[i].getDetail());
+		System.out.printf("Search results for '%s':%n", id);
+		for (Media i : itemsOrdered){
+			if (i.getID() == id) {
+				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
 				k = 1; // flag triggers when there is a matching
 			}
 		}

@@ -11,9 +11,9 @@ public class CartTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin","Animation",18.99f);
 
-        anOrder.addDigitalVideoDisc(dvd1);
-        anOrder.addDigitalVideoDisc(dvd2);
-        anOrder.addDigitalVideoDisc(dvd3);
+        anOrder.addMedia(dvd1);
+        anOrder.addMedia(dvd2);
+        anOrder.addMedia(dvd3);
 
         System.out.println("");
         
