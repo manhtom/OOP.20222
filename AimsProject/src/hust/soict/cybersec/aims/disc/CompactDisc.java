@@ -9,6 +9,7 @@ public class CompactDisc extends Disc {
     public CompactDisc() {
         super();
     }
+
     public String getArtist() {
         return artist;
     }
