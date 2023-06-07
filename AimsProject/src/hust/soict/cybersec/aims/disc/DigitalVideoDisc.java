@@ -1,8 +1,7 @@
 package hust.soict.cybersec.aims.disc;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
 	private static int nbDigitalVideoDiscs = 0;
-	private int id;
 	private String director;
 	private int length;
 
@@ -10,13 +9,13 @@ public class DigitalVideoDisc extends Disc {
 		nbDigitalVideoDiscs++;
 		this.director=director;
 		this.length=length;
-		this.id=nbDigitalVideoDiscs;
+		setID(nbDigitalVideoDiscs);
 	}
 
 	public DigitalVideoDisc(String title) {
 		nbDigitalVideoDiscs++;
 		super.setTitle(title);
-		this.id=nbDigitalVideoDiscs;
+		setID(nbDigitalVideoDiscs);
 	}
 
 	public DigitalVideoDisc(String title, String category, float cost) {
@@ -24,7 +23,7 @@ public class DigitalVideoDisc extends Disc {
 		super.setTitle(title);
 		super.setCategory(category);
 		super.setCost(cost);
-		this.id=nbDigitalVideoDiscs;
+		setID(nbDigitalVideoDiscs);
 	}
 
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
@@ -33,11 +32,7 @@ public class DigitalVideoDisc extends Disc {
 		super.setCategory(category);
 		this.director=director;
 		super.setCost(cost);
-		this.id=nbDigitalVideoDiscs;
-	}
-
-	public int getID() {
-		return id;
+		setID(nbDigitalVideoDiscs);
 	}
 
 	public String getDirector() {
@@ -54,7 +49,7 @@ public class DigitalVideoDisc extends Disc {
 		this.director = dvd.getDirector();
 		this.length = dvd.getLength();
 		super.setCost(dvd.getCost());
-		this.id = dvd.getID();
+		setID(dvd.getID());
 	}
 
 	public String getDetail(){
@@ -71,11 +66,16 @@ public class DigitalVideoDisc extends Disc {
 	}
 
 	public boolean search(int id) {
-		if (this.id == id) {
+		if (super.getID() == id) {
 			return true;
 		}
 		else {
 			return false;
 		}
+	}
+
+	public void play() {
+		System.out.println("Playing DVD: "+this.getTitle());
+		System.out.println("DVD length: "+this.getLength());
 	}
 }

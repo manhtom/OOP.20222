@@ -1,8 +1,9 @@
 package hust.soict.cybersec.aims.disc;
 
 import java.util.*;
+import hust.soict.cybersec.aims.media.*;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Media implements Playable {
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
 
@@ -45,4 +46,13 @@ public class CompactDisc extends Disc {
         }
         return total;
     }
+
+	public void play() {
+        System.out.println("Playing CD: "+this.getTitle());
+        System.out.printf("Genre: %s - Artist: %s - Length: %d%n", this.getCategory(), this.getArtist(), this.getLength());
+    
+		for (Track i : tracks) {
+            i.play();
+        }
+	}
 }
