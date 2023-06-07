@@ -12,9 +12,9 @@ public class aims {
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin","Animation",18.99f);
 
-		anOrder.addDigitalVideoDisc(dvd1);
-		anOrder.addDigitalVideoDisc(dvd2);
-		anOrder.addDigitalVideoDisc(dvd3);
+		anOrder.addMedia(dvd1);
+		anOrder.addMedia(dvd2);
+		anOrder.addMedia(dvd3);
 
 		// print total cost of the items in the cart
 		System.out.println("Total cost is: "+ anOrder.totalCost());
@@ -22,15 +22,15 @@ public class aims {
 
 		// empty the cart
 		System.out.println("Now emptying the cart...");
-		anOrder.removeDigitalVideoDisc(dvd1);
+		anOrder.removeMedia(dvd1);
 
 		anOrder.print(); // print the order to confirm
 
-		anOrder.removeDigitalVideoDisc(dvd3);
-		anOrder.removeDigitalVideoDisc(dvd3); // user is removing a non-existent dvd
+		anOrder.removeMedia(dvd3);
+		anOrder.removeMedia(dvd3); // user is removing a non-existent dvd
 
-		anOrder.removeDigitalVideoDisc(dvd2);
-		anOrder.removeDigitalVideoDisc(dvd2); // user is removing dvd from an empty cart
+		anOrder.removeMedia(dvd2);
+		anOrder.removeMedia(dvd2); // user is removing dvd from an empty cart
 
 		// confirm that the cart is empty by printing the order
 		anOrder.print();

@@ -1,42 +1,42 @@
 package hust.soict.cybersec.aims.store;
-import hust.soict.cybersec.aims.disc.*;
+
+import hust.soict.cybersec.aims.media.*;
+import java.util.*;
 
 public class Store {
-    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[1000];
+    private List<Media> itemsInStore = new ArrayList<Media>();
     private int qty = 0;
 
-    public void addDVD(DigitalVideoDisc disc) {
-        itemsInStore[qty]=disc;
-        qty++;
-        System.out.println("The disc '" + disc.getTitle() + "' has successfully been added to store.");
+	public boolean addMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+            itemsInStore.add(media);
+            System.out.println("Added product: "+media.getTitle());
+			qty++;
+            return true;
+        }
+        else {
+            System.out.println("Unable to add product: "+media.getTitle()+" because the product is already in the store");
+            return false;
+        }
     }
 
-    public void removeDVD(DigitalVideoDisc disc) {
-		DigitalVideoDisc[] newItemsInStore = new DigitalVideoDisc[1000];
-		int k = 0; // the index for newItemsOrdered
-		int removed = 0; // removal flag
-	
-		for (int i=0; i < 1000 ; i++) {
-			if (this.itemsInStore[i] != disc || (this.itemsInStore[i] == disc && removed == 1)) {
-				newItemsInStore[k] = this.itemsInStore[i];
-				k++;
-			}
-			else {
-				this.qty--;
-				removed = 1; // trigger the flag
-				System.out.println("The disc '" + disc.getTitle() + "' has successfully been removed from store.");
-			}
+    public boolean removeMedia(Media media) {
+        if (itemsInStore.contains(media)) {
+            itemsInStore.remove(media);
+			qty--;
+            System.out.println("Removed product: "+media.getTitle());
+            return true;
+        }
+        else {
+            System.out.println("Unable to removed product: "+media.getTitle()+" because the product is not in the store");
+            return false;
+        }
+    }
+	public float totalCost() {
+		float total=0;
+		for (Media i : itemsInStore) {
+			total+=i.getCost();
 		}
-		this.itemsInStore = newItemsInStore; // operate directly on the object
-
-		if (removed == 0) { // different messages shown to user depending on whether the store is empty or not
-			if (this.qty == 0) { // the store is empty
-				System.out.println("The disc '" + disc.getTitle() + "' is not available in the store. The store is currently empty.");
-				return;
-			}
-			else { // if the store has something
-				System.out.println("The disc '" + disc.getTitle() + "' is not available in the store. You can only remove what is in the store.");
-			}
-		}
+		return total;
 	}
 }
