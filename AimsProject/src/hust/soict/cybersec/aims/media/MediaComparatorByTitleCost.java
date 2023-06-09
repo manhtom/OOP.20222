@@ -8,7 +8,7 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
             return compare;
         }
         else {
-            return Float.compare(firstMedia.getCost(), secondMedia.getCost());;
+            return Float.compare(firstMedia.getCost(), secondMedia.getCost());
         }
     }
 }
