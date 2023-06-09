@@ -4,7 +4,6 @@ import java.util.*;
 import hust.soict.cybersec.aims.media.*;
 
 public class Book extends Media {
-	private int id;
     private List<String> authors = new ArrayList<String>() ;
 
     public Book(String title, String category, float cost, ArrayList<String> authors) { // for multiple authors
@@ -15,10 +14,6 @@ public class Book extends Media {
     public Book(String title, String category, float cost, String authors) { // for single author
         super(title, category, cost);
         this.authors.add(authors);
-    }
-
-    public int getID(){
-        return id;
     }
 
     public String getAuthors() {
