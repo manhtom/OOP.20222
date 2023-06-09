@@ -3,7 +3,11 @@ package hust.soict.cybersec.aims.media;
 import java.time.LocalDate;
 import java.util.Comparator;
 
+import hust.soict.cybersec.aims.disc.*;
+import hust.soict.cybersec.aims.book.*;
+
 public abstract class Media {
+    private static int nbMedia = 0;
     private int id;
     private String title;
     private String category;
@@ -12,9 +16,15 @@ public abstract class Media {
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
-    public Media() {
-        // to do
-    }
+
+    public Media(String title, String category, float cost) {
+        nbMedia++;
+        this.id = nbMedia;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+        this.date = LocalDate.now();
+    } 
 
     public int getID() {
         return id;
@@ -65,4 +75,18 @@ public abstract class Media {
             return false;
         }
     }
+    
+	public String getDetail(){
+		if (this instanceof DigitalVideoDisc) {
+			return String.format("DVD - %s - %s - %s - %s minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getDirector(), ((Disc)this).getLength(), this.getCost());
+		}
+
+		else if (this instanceof CompactDisc) {
+			return String.format("CD - %s - %s - %s - %s minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getDirector(), ((Disc)this).getLength(), this.getCost());
+		}
+
+		else {
+			return String.format("Book - %s - %s - %s - %s minutes: %.2f $", this.getTitle(), ((Book)this).getAuthors(), this.getCategory(), this.getCost());
+		}
+	}
 }

@@ -7,12 +7,21 @@ public class Book extends Media {
 	private int id;
     private List<String> authors = new ArrayList<String>() ;
 
-    public Book() {
-        // todo
+    public Book(String title, String category, float cost, ArrayList<String> authors) {
+        super(title, category, cost);
+        this.authors = authors;
     }
 
     public int getID(){
         return id;
+    }
+
+    public String getAuthors() {
+        StringBuffer authorList = new StringBuffer();
+        for (String i : authors) {
+            authorList.append(String.format("%s, ",i));
+        }
+        return authorList.toString();
     }
 
     public boolean addAuthor(String authorName) {
