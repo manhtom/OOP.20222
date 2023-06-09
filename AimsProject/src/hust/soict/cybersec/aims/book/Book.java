@@ -7,9 +7,14 @@ public class Book extends Media {
 	private int id;
     private List<String> authors = new ArrayList<String>() ;
 
-    public Book(String title, String category, float cost, ArrayList<String> authors) {
+    public Book(String title, String category, float cost, ArrayList<String> authors) { // for multiple authors
         super(title, category, cost);
         this.authors = authors;
+    }
+
+    public Book(String title, String category, float cost, String authors) { // for single author
+        super(title, category, cost);
+        this.authors.add(authors);
     }
 
     public int getID(){
