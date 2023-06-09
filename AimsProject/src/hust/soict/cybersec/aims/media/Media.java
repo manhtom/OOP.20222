@@ -78,15 +78,15 @@ public abstract class Media {
     
 	public String getDetail(){
 		if (this instanceof DigitalVideoDisc) {
-			return String.format("DVD - %s - %s - %s - %s minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getDirector(), ((Disc)this).getLength(), this.getCost());
+			return String.format("DVD - %s - %s - %s - %d minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getDirector(), ((Disc)this).getLength(), this.getCost());
 		}
 
 		else if (this instanceof CompactDisc) {
-			return String.format("CD - %s - %s - %s - %s minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getDirector(), ((Disc)this).getLength(), this.getCost());
+			return String.format("CD - %s - %s - %d minutes: %.2f $", this.getTitle(),this.getCategory(), ((Disc)this).getLength(), this.getCost());
 		}
 
 		else {
-			return String.format("Book - %s - %s - %s - %s minutes: %.2f $", this.getTitle(), ((Book)this).getAuthors(), this.getCategory(), this.getCost());
+			return String.format("Book - %s - %s - %s: %.2f $", this.getTitle(), ((Book)this).getAuthors(), this.getCategory(), this.getCost());
 		}
 	}
 }
