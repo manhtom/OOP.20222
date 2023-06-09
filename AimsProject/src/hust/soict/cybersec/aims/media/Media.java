@@ -1,6 +1,7 @@
 package hust.soict.cybersec.aims.media;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 
 public abstract class Media {
     private int id;
@@ -8,6 +9,8 @@ public abstract class Media {
     private String category;
     private float cost;
     private LocalDate date;
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
     public Media() {
         // to do

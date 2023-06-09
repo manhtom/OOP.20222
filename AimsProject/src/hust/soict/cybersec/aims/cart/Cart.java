@@ -87,4 +87,21 @@ public class Cart {
 		}
 		System.out.println("");
 	}
+
+	public void sortItems() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Type 1 if you want to sort by title.\nType 2 if you want to sort by cost.");
+		int selected = input.nextInt();
+		if (selected == 1) {
+			Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+			System.out.println("Sorting completed.");
+			print();
+		}
+		else {
+			Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+			System.out.println("Sorting completed.");
+			print();
+		}
+		input.close();
+	}
 }
