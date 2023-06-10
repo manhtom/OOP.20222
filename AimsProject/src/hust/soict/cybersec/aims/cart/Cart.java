@@ -81,24 +81,6 @@ public class Cart {
 		System.out.println("***************************************************");
 	}
 
-	public void print(Store s) {
-		int k = 0;
-		System.out.println("");
-		System.out.println("***********************CART***********************");
-		if (itemsOrdered.size() > 0) {
-			System.out.println("Ordered Items:");
-			for (Media i : itemsOrdered){
-				System.out.printf("%d. %s%n", k+1, i.getDetail());
-				k++;
-			}
-			System.out.printf("Total cost: %.2f%n", totalCost());
-		}
-		else {
-			System.out.println("Nothing in cart here.");
-		}
-		System.out.println("***************************************************");
-	}
-
 	public void search(String title) {
 		int k = 0; // matching flag
 		System.out.println("");
