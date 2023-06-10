@@ -14,10 +14,14 @@ public class Cart {
 	}
 
     public boolean addMedia(Media media) {
-        if (!itemsOrdered.contains(media)) {
+        if (!itemsOrdered.contains(media) && itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
 			itemsOrdered.add(media);
 			System.out.println("Added product to the cart: "+media.getTitle());
 			return true;
+		}
+		else if (itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
+            System.out.println("Unable to add product: "+media.getTitle()+" because the cart has already reached the maximum number of items.");
+            return false;			
 		}
         else {
             System.out.println("Unable to add product: "+media.getTitle()+" because the product is already in the cart");
