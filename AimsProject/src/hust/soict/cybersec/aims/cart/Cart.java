@@ -15,14 +15,14 @@ public class Cart {
 
     public boolean addMedia(Media media) {
 		itemsOrdered.add(media);
-		System.out.println("Added product: "+media.getTitle());
+		System.out.println("Added product to the cart: "+media.getTitle());
 		return true;
      }
 
     public boolean removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
-            System.out.println("Removed product: "+media.getTitle());
+            System.out.println("Removed product from the cart: "+media.getTitle());
             return true;
         }
         else {
@@ -110,7 +110,7 @@ public class Cart {
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", id);
 		for (Media i : itemsOrdered){
-			if (i.getID() == id) {
+			if (i.search(id)) {
 				System.out.printf("- %s%n", i.getDetail());
 				k = 1; // flag triggers when there is a matching
 			}
@@ -156,7 +156,7 @@ public class Cart {
 
 		else if (selected == 2) {
 			System.out.println("Enter the title to filter ");
-			search(input.next());
+			search(input.nextLine());
 		}
 
 		else {
@@ -170,7 +170,7 @@ public class Cart {
 
 	public void playMedia() {
 		Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the media name you want to remove");
+        System.out.println("Please enter the media name you want to play");
         String title = input.next();
 		
         for (Media i : itemsOrdered){

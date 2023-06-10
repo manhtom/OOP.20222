@@ -99,7 +99,7 @@ public abstract class Media {
 	}
 
 	public boolean search(int id) {
-		if (this.id == id) {
+		if (Integer.compare(this.id ,id) == 0) {
 			return true;
 		}
 		else {
