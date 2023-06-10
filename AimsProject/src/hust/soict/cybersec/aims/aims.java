@@ -1,9 +1,6 @@
 package hust.soict.cybersec.aims;
 
-import hust.soict.cybersec.aims.book.Book;
 import hust.soict.cybersec.aims.cart.*;
-import hust.soict.cybersec.aims.disc.CompactDisc;
-import hust.soict.cybersec.aims.disc.DigitalVideoDisc;
 import hust.soict.cybersec.aims.store.*;
 import java.util.*;
 
@@ -24,7 +21,7 @@ public class aims {
 		int selected = input.nextInt();
 
 		if (selected == 1) {
-			aStore.print(anOrder);
+			aStore.print();
 			storeMenu();
 			showMenu();
 		}
@@ -116,12 +113,6 @@ public class aims {
 	}
 
 	public static void main(String[] args) { // preadded 3 products to the store
-		CompactDisc cd = new CompactDisc("Ninth Symphony", "Classical", 14.00f, "Beethoven");
-        DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
-        Book book = new Book("Gone with the Wind", "Fiction", 19.88f, "Margaret Mitchell");
-		aStore.addMedia(cd);
-		aStore.addMedia(dvd);
-		aStore.addMedia(book);
 		showMenu();
 		input.close();
 	}
