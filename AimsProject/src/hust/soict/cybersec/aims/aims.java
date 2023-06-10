@@ -8,8 +8,8 @@ import hust.soict.cybersec.aims.store.*;
 import java.util.*;
 
 public class aims {
-	static Store aStore = new Store();
-	static Cart anOrder = new Cart();
+	private static Store aStore = new Store();
+	private static Cart anOrder = new Cart();
 	static Scanner input = new Scanner(System.in);
 
 	public static void showMenu() {
