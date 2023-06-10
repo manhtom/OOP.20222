@@ -14,10 +14,16 @@ public class Cart {
 	}
 
     public boolean addMedia(Media media) {
-		itemsOrdered.add(media);
-		System.out.println("Added product to the cart: "+media.getTitle());
-		return true;
-     }
+        if (!itemsOrdered.contains(media)) {
+			itemsOrdered.add(media);
+			System.out.println("Added product to the cart: "+media.getTitle());
+			return true;
+		}
+        else {
+            System.out.println("Unable to add product: "+media.getTitle()+" because the product is already in the cart");
+            return false;
+     	}
+	}
 
     public boolean removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {

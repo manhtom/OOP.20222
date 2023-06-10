@@ -38,7 +38,6 @@ public class aims {
 			showMenu();
 		}
 		else {
-			input.close();
 			return;
 		}
 	}
@@ -46,7 +45,7 @@ public class aims {
 	public static void storeMenu() {
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
-		System.out.println("1. See a media’s details");
+		System.out.println("1. See a media's details");
 		System.out.println("2. Add a media to cart");
 		System.out.println("3. Play a media");
 		System.out.println("4. See current cart");
@@ -57,20 +56,19 @@ public class aims {
 		int selected = input.nextInt();
 		if (selected == 1) {
 			aStore.getDetail(anOrder);
-			showMenu();
+			storeMenu();
 		}
 		else if (selected == 2) {
 			aStore.addMedia(anOrder);
-			showMenu();
+			storeMenu();
 		}
 		else if (selected == 3) {
 			aStore.playMedia();
-			showMenu();
+			storeMenu();
 		}
 		else if (selected == 4) {
 			anOrder.print();
 			cartMenu();
-			showMenu();
 		}
 		else {
 			return;
@@ -124,6 +122,7 @@ public class aims {
 		aStore.addMedia(dvd);
 		aStore.addMedia(book);
 		showMenu();
+		input.close();
 	}
 
 	// public static void main(String[] args) {
