@@ -29,7 +29,7 @@ public class Cart {
      	}
 	}
 
-    public boolean removeMedia(Media media) {
+    private boolean removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
             System.out.println("Removed product from the cart: "+media.getTitle());
@@ -81,7 +81,7 @@ public class Cart {
 		System.out.println("***************************************************");
 	}
 
-	public void search(String title) {
+	private void search(String title) {
 		int k = 0; // matching flag
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", title);
@@ -97,7 +97,7 @@ public class Cart {
 		System.out.println("");
 	}
 
-	public void search(int id) {
+	private void search(int id) {
 		int k = 0; // matching flag
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", id);

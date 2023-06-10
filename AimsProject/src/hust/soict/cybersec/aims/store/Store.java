@@ -83,7 +83,7 @@ public class Store {
         System.out.println("Please recheck the name you've entered.");
     }
 
-	public boolean addMedia(Media media) {
+	private boolean addMedia(Media media) {
         if (!itemsInStore.contains(media)) {
             itemsInStore.add(media);
             System.out.println("Added product to the store: "+media.getTitle());
@@ -111,10 +111,10 @@ public class Store {
         System.out.println("Nothing has been removed. Please recheck the name you entered.");
     }
 
-    public boolean removeMedia(Media media) {
+    private boolean removeMedia(Media media) {
         if (itemsInStore.contains(media)) {
             itemsInStore.remove(media);
-			qty--;
+        qty--;
             System.out.println("Removed product from the store: "+media.getTitle());
             return true;
         }
@@ -149,32 +149,14 @@ public class Store {
 		System.out.println("***************************************************");
 	}
 
-	public void print(Cart c) {
-		int k = 0;
-		System.out.println("");
-		System.out.println("***********************CART***********************");
-		if (itemsInStore.size() > 0) {
-			System.out.println("Items in store:");
-			for (Media i : itemsInStore){
-				System.out.printf("%d. %s%n", k+1, i.getDetail());
-				k++;
-			}
-		}
-		else {
-			System.out.println("Nothing in store.");
-		}
-		System.out.println("***************************************************");
-	}
-
-
     public void update() {
         System.out.println("Update store ");
-		System.out.println("--------------------------------");
-		System.out.println("1. Add media to the store");
-		System.out.println("2. Remove media to the store");
-		System.out.println("3. Return to main menu");
-		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 1-2-3");
+        System.out.println("--------------------------------");
+        System.out.println("1. Add media to the store");
+        System.out.println("2. Remove media to the store");
+        System.out.println("3. Return to main menu");
+        System.out.println("--------------------------------");
+        System.out.println("Please choose a number: 1-2-3");
 
 		Scanner input = new Scanner(System.in);
 		int selected = input.nextInt();
