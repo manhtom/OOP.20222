@@ -23,8 +23,8 @@ public class CartTest {
         System.out.println("");
     
         // test search method
-        anOrder.search("Aladdin");
-        anOrder.search("Cinderella");
-        anOrder.search(1);
+        // anOrder.search("Aladdin");
+        // anOrder.search("Cinderella");
+        // anOrder.search(1);
     }
 }

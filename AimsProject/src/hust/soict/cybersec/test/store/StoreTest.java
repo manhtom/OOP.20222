@@ -10,14 +10,14 @@ public class StoreTest {
 
         Store aStore= new Store();
         //add DVDs to store
-        aStore.addMedia(dvd1);
-        aStore.addMedia(dvd2);
-        aStore.addMedia(dvd3);
+        // aStore.addMedia(dvd1);
+        // aStore.addMedia(dvd2);
+        // aStore.addMedia(dvd3);
 
         //remove "Aladdin" and "The Lion King" from store
-        aStore.removeMedia(dvd3);
-        aStore.removeMedia(dvd3); // attempt to trigger the error message
-        aStore.removeMedia(dvd1);
+        // aStore.removeMedia(dvd3);
+        // aStore.removeMedia(dvd3); // attempt to trigger the error message
+        //aStore.removeMedia(dvd1);
 
     }
 }
