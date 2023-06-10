@@ -150,6 +150,7 @@ public class Store {
 	}
 
     public void update() {
+        System.out.println("");
         System.out.println("Update store ");
         System.out.println("--------------------------------");
         System.out.println("1. Add media to the store");
@@ -207,6 +208,7 @@ public class Store {
         int selected;
 
         for (Media i : itemsInStore){
+            System.out.println("");
             if (i.search(title)) {
                 System.out.println(i.getDetail());
                 System.out.println("Options ");

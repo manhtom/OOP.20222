@@ -10,6 +10,7 @@ public class aims {
 	static Scanner input = new Scanner(System.in);
 
 	public static void showMenu() {
+		System.out.println("");
 		System.out.println("AIMS: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. View store");
@@ -40,6 +41,7 @@ public class aims {
 	}
 
 	public static void storeMenu() {
+		System.out.println("");
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. See a media's details");
@@ -74,6 +76,7 @@ public class aims {
 	}
 
 	public static void cartMenu() {
+		System.out.println("");
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. Filter medias in cart");

@@ -131,6 +131,7 @@ public class Cart {
 	}
 
 	public void filterItems() {
+		System.out.println("");
 		System.out.println("Filtering options: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. Filter by id");
