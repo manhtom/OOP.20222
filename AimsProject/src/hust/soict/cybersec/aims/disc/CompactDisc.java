@@ -48,6 +48,10 @@ public class CompactDisc extends Disc implements Playable {
     }
 
 	public void play() {
+		if (Integer.compare(this.getLength(), 0) == 0) {
+				System.out.println("The media you entered cannot be played.");
+				return;
+		}
         System.out.println("Playing CD: "+this.getTitle());
         System.out.printf("Genre: %s - Artist: %s - Length: %d%n", this.getCategory(), this.getArtist(), this.getLength());
     

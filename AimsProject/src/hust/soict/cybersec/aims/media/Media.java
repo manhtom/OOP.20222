@@ -16,7 +16,6 @@ public abstract class Media {
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
-
     public Media(String title, String category, float cost) {
         nbMedia++;
         this.id = nbMedia;
@@ -87,6 +86,24 @@ public abstract class Media {
 
 		else {
 			return String.format("Book - %s - %s - %s: %.2f $", this.getTitle(), ((Book)this).getAuthors(), this.getCategory(), this.getCost());
+		}
+	}
+
+	public boolean search(String title) {
+		if (this.title.equals(title)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean search(int id) {
+		if (Integer.compare(this.id ,id) == 0) {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 }
