@@ -69,6 +69,7 @@ public class aims {
 		else if (selected == 4) {
 			anOrder.print();
 			cartMenu();
+			storeMenu();
 		}
 		else {
 			return;

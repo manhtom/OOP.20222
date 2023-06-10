@@ -258,5 +258,7 @@ public class Store {
                 }
             }        
         }
+        System.out.println("Please recheck the name you've entered.");       
+        return;
     }
 }
