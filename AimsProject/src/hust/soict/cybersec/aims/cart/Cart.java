@@ -35,7 +35,7 @@ public class Cart {
 		Scanner input = new Scanner(System.in);
         
         System.out.println("Please enter the media name you want to remove");
-        String title = input.next();
+        String title = input.nextLine();
         for (Media i : itemsOrdered){
             if (i.search(title)) {
                 removeMedia(i);
@@ -171,7 +171,7 @@ public class Cart {
 	public void playMedia() {
 		Scanner input = new Scanner(System.in);
         System.out.println("Please enter the media name you want to play");
-        String title = input.next();
+        String title = input.nextLine();
 		
         for (Media i : itemsOrdered){
             if (i.search(title)) {
