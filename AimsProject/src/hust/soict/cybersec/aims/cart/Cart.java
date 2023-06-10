@@ -9,8 +9,8 @@ public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private List<Media> itemsOrdered=new ArrayList<Media>();
 
-	public int getNumberofItemsOrdered() {
-		return itemsOrdered.size();
+    public int getNumberofItemsOrdered() {
+        return itemsOrdered.size();
 	}
 
     public boolean addMedia(Media media) {
