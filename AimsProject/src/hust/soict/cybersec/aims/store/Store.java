@@ -218,7 +218,7 @@ public class Store {
 		System.out.println("Nothing has been played. Please recheck the name you entered.");
 	}
 
-    public void getDetail() {
+    public void getDetail(Cart c) {
 		Scanner input = new Scanner(System.in);
         System.out.println("Please enter the media name you want to explore more");
         String title = input.nextLine();
@@ -226,7 +226,7 @@ public class Store {
 
         for (Media i : itemsInStore){
             if (i.search(title)) {
-                i.getDetail();
+                System.out.println(i.getDetail());
                 System.out.println("Options ");
                 System.out.println("--------------------------------");
                 System.out.println("1. Add media to the cart");
@@ -239,7 +239,7 @@ public class Store {
 
                 selected = input.nextInt();
                 if (selected == 1) {
-                    addMedia(i);
+                    c.addMedia(i);
                     return;
                 }
 
