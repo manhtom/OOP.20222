@@ -86,7 +86,7 @@ public class Store {
 	public boolean addMedia(Media media) {
         if (!itemsInStore.contains(media)) {
             itemsInStore.add(media);
-            System.out.println("Added product: "+media.getTitle());
+            System.out.println("Added product to the store: "+media.getTitle());
 			qty++;
             return true;
         }
@@ -115,7 +115,7 @@ public class Store {
         if (itemsInStore.contains(media)) {
             itemsInStore.remove(media);
 			qty--;
-            System.out.println("Removed product: "+media.getTitle());
+            System.out.println("Removed product from the store: "+media.getTitle());
             return true;
         }
         else {
