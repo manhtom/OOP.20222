@@ -25,10 +25,6 @@ public abstract class Media {
         this.date = LocalDate.now();
     } 
 
-    public int getID() {
-        return id;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -39,26 +35,6 @@ public abstract class Media {
 
     public float getCost() {
         return cost;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setID(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setCost(float cost) {
-        this.cost = cost;
     }
 
     public boolean equals(Object o) {

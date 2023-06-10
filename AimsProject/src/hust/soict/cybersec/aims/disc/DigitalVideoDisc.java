@@ -10,6 +10,10 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		super(title, category, cost);
 	}
 
+	public DigitalVideoDisc(String title, String category, float cost, int length) {
+        super(title, category, cost, length);
+    }
+
 	// public void swap(DigitalVideoDisc dvd) {
 	//	super.setTitle(dvd.getTitle());
 	//	super.setCategory(dvd.getCategory());
