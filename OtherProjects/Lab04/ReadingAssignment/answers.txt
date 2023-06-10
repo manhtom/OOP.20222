@@ -1,0 +1,44 @@
+9. Constructors of whole classes and parent classes
+- Which classes are aggregates of other classes? 
+
+Store and Cart are aggregates of Book, DigitalVideoDisc and CompactDisc.
+CompactDisc is an aggregate of Track.
+
+===========================================================================================================
+10. Unique item in a cart
+
+- When overriding the equals() method of the Object class, you will have to cast the Object
+parameter obj to the type of Object that you are dealing with. For example, in the Media class, you
+must cast the Object obj to a Media, and then check the equality of the two objects’ attributes as the
+above requirements (i.e. id for Media; title and length for Track). If the passing object is not
+an instance of Media, what happens?
+
+A ClassCastException will be raised. To avoid this, we can use the instanceof method to check if the passing object is an instance of Media or not.
+
+===========================================================================================================
+12. Sort media in the cart
+
+Alternatively, to compare items in the cart, instead of using Comparator, we can use the
+Comparable interface and override the compareTo()method. You can refer to the Java docs to see the
+information of this interface.
+
+Suppose we are taking this Comparable interface approach.
+
+1. What class should implement the Comparable interface?
+
+The Media class.
+
+2. In those classes, how should you implement the compareTo() method be to reflect the ordering that we
+want?
+
+We compare the two attributes of the object: title and cost.
+
+3. Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
+Comparable interface approach?
+
+No. The compareTo method can only implement a single ordering rule.
+
+4. Suppose the DVDs has a different ordering rule from the other media types, that is by title, then decreasing
+length, then cost. How would you modify your code to allow this?
+
+We will utilize method overriding for compareTo in the DigitalVideoDisc class.
