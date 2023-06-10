@@ -19,24 +19,6 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	//	setID(dvd.getID());
 	//}
 
-	public boolean search(String title) {
-		if (super.getTitle() == title) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	public boolean search(int id) {
-		if (super.getID() == id) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
 	public void play() {
 		System.out.println("Playing DVD: "+this.getTitle());
 		System.out.println("DVD length: "+this.getLength());

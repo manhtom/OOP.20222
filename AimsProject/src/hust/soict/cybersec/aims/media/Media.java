@@ -89,4 +89,22 @@ public abstract class Media {
 			return String.format("Book - %s - %s - %s: %.2f $", this.getTitle(), ((Book)this).getAuthors(), this.getCategory(), this.getCost());
 		}
 	}
+
+	public boolean search(String title) {
+		if (this.title.equals(title)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean search(int id) {
+		if (this.id == id) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

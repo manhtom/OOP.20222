@@ -1,11 +1,17 @@
 package hust.soict.cybersec.aims.cart;
 
+import hust.soict.cybersec.aims.store.*;
 import hust.soict.cybersec.aims.media.*;
+import hust.soict.cybersec.aims.disc.*;
 import java.util.*;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private List<Media> itemsOrdered=new ArrayList<Media>();
+
+	public int getNumberofItemsOrdered() {
+		return itemsOrdered.size();
+	}
 
     public boolean addMedia(Media media) {
         if (!itemsOrdered.contains(media)) {
@@ -30,6 +36,21 @@ public class Cart {
             return false;
         }
     }
+
+    public void removeMedia() {
+		Scanner input = new Scanner(System.in);
+        
+        System.out.println("Please enter the media name you want to remove");
+        String title = input.next();
+        for (Media i : itemsOrdered){
+            if (i.search(title)) {
+                removeMedia(i);
+                return;
+            }
+        }
+        System.out.println("Nothing has been removed. Please recheck the name you entered.");
+    }
+
 	public float totalCost() {
 		float total=0;
 		for (Media i : itemsOrdered) {
@@ -45,7 +66,25 @@ public class Cart {
 		if (itemsOrdered.size() > 0) {
 			System.out.println("Ordered Items:");
 			for (Media i : itemsOrdered){
-				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
+				System.out.printf("%d. %s%n", k+1, i.getDetail());
+				k++;
+			}
+			System.out.printf("Total cost: %.2f%n", totalCost());
+		}
+		else {
+			System.out.println("Nothing in cart here.");
+		}
+		System.out.println("***************************************************");
+	}
+
+	public void print(Store s) {
+		int k = 0;
+		System.out.println("");
+		System.out.println("***********************CART***********************");
+		if (itemsOrdered.size() > 0) {
+			System.out.println("Ordered Items:");
+			for (Media i : itemsOrdered){
+				System.out.printf("%d. %s%n", k+1, i.getDetail());
 				k++;
 			}
 			System.out.printf("Total cost: %.2f%n", totalCost());
@@ -61,8 +100,8 @@ public class Cart {
 		System.out.println("");
 		System.out.printf("Search results for '%s':%n", title);
 		for (Media i : itemsOrdered){
-			if (i.getTitle() == title) {
-				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
+			if (i.search(title)) {
+				System.out.printf("- %s%n", i.getDetail());
 				k = 1; // flag triggers when there is a matching
 			}
 		}
@@ -78,7 +117,7 @@ public class Cart {
 		System.out.printf("Search results for '%s':%n", id);
 		for (Media i : itemsOrdered){
 			if (i.getID() == id) {
-				System.out.printf("%d. %s - %s - %s - %s%n", k+1, i.getTitle(), i.getCategory(), i.getCost(), i.getDate());
+				System.out.printf("- %s%n", i.getDetail());
 				k = 1; // flag triggers when there is a matching
 			}
 		}
@@ -102,6 +141,60 @@ public class Cart {
 			System.out.println("Sorting completed.");
 			print();
 		}
-		input.close();
+		
+	}
+
+	public void filterItems() {
+		System.out.println("Filtering options: ");
+		System.out.println("--------------------------------");
+		System.out.println("1. Filter by id");
+		System.out.println("2. Filter by title");
+		System.out.println("3. Return to previous menu");
+		System.out.println("--------------------------------");
+		System.out.println("Please choose a number: 1-2-3");
+		Scanner input = new Scanner(System.in);
+		int selected = input.nextInt();
+		
+		if (selected == 1) {
+			System.out.println("Enter the ID to filter ");
+			search(input.nextInt());
+		}
+
+		else if (selected == 2) {
+			System.out.println("Enter the title to filter ");
+			search(input.next());
+		}
+
+		else {
+			return;
+		}
+	}
+
+	public void empty() {
+		itemsOrdered.clear();
+	}
+
+	public void playMedia() {
+		Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the media name you want to remove");
+        String title = input.next();
+		
+        for (Media i : itemsOrdered){
+            if (i.search(title)) {
+				if (i instanceof DigitalVideoDisc) {
+					((DigitalVideoDisc)i).play();
+					return;
+				}
+				else if (i instanceof CompactDisc) {
+					((CompactDisc)i).play();
+					return;
+				}
+				else {
+					System.out.println("The media you entered cannot be played.");
+					return;
+				}
+			}
+		}
+		System.out.println("Nothing has been played. Please recheck the name you entered.");
 	}
 }
