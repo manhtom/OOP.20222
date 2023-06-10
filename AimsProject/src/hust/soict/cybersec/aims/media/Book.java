@@ -1,7 +1,6 @@
-package hust.soict.cybersec.aims.book;
+package hust.soict.cybersec.aims.media;
 
 import java.util.*;
-import hust.soict.cybersec.aims.media.*;
 
 public class Book extends Media {
     private List<String> authors = new ArrayList<String>() ;

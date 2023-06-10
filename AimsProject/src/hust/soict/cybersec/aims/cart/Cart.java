@@ -42,7 +42,7 @@ public class Cart {
     }
 
     public void removeMedia() {
-		Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         
         System.out.println("Please enter the media name you want to remove");
         String title = input.nextLine();
