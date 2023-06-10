@@ -21,7 +21,8 @@ public class Store {
         System.out.println("Please enter media category/genre");
         String category = input.nextLine();
         System.out.println("Please enter the cost");
-        float cost = input.nextFloat();      
+        float cost = input.nextFloat();
+        input.nextLine();  
         if (type.equals("DVD")) {
             System.out.println("Please enter the director");
             String director = input.nextLine();
