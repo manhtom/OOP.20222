@@ -162,8 +162,8 @@ public class Cart {
 
 	public void playMedia() {
 		Scanner input = new Scanner(System.in);
-        System.out.println("Please enter the media name you want to play");
-        String title = input.nextLine();
+		System.out.println("Please enter the media name you want to play");
+		String title = input.nextLine();
 		
         for (Media i : itemsOrdered){
             if (i.search(title)) {
