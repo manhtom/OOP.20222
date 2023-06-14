@@ -83,7 +83,7 @@ public class Store {
         System.out.println("Please recheck the name you've entered.");
     }
 
-	private boolean addMedia(Media media) {
+	public boolean addMedia(Media media) {
         if (!itemsInStore.contains(media)) {
             itemsInStore.add(media);
             System.out.println("Added product to the store: "+media.getTitle());
@@ -244,5 +244,9 @@ public class Store {
         }
         System.out.println("Please recheck the name you've entered.");       
         return;
+    }
+
+    public ArrayList<Media> getItemsInStore() {
+        return (ArrayList<Media>)itemsInStore;
     }
 }
