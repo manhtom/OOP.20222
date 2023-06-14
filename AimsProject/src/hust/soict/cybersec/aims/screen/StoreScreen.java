@@ -2,6 +2,8 @@ package hust.soict.cybersec.aims.screen;
 
 import java.awt.*;
 import javax.swing.*;
+
+import hust.soict.cybersec.aims.disc.DigitalVideoDisc;
 import hust.soict.cybersec.aims.media.Media;
 import hust.soict.cybersec.aims.store.*;
 import java.util.*;
@@ -63,7 +65,7 @@ public class StoreScreen extends JFrame {
         center.setLayout (new GridLayout(3,3,2,2));
 
         ArrayList<Media> mediaInStore = store.getItemsInStore();
-        for (int i = 0; i < 9; i++) { // note that the store must have "something" in order for this part to work
+        for (int i = 0; i < 3; i++) { // note that the store must have "something" in order for this part to work
             MediaStore cell = new MediaStore(mediaInStore.get(i));
             center.add(cell);
         }
@@ -85,7 +87,16 @@ public class StoreScreen extends JFrame {
     }
 
     public static void main(String[] args) {
-        Store s = new Store();
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",87,24.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin","Animation",18.99f);
+
+        Store s= new Store();
+        //add DVDs to store
+        s.addMedia(dvd1);
+        s.addMedia(dvd2);
+        s.addMedia(dvd3);
         new StoreScreen(s);
+
     }
 }
