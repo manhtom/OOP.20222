@@ -23,7 +23,11 @@ public abstract class Media {
         this.cost = cost;
         this.date = LocalDate.now();
     } 
-
+    
+	public int getID() {
+		return id;
+	}
+	
     public String getTitle() {
         return title;
     }
@@ -37,17 +41,22 @@ public abstract class Media {
     }
 
     public boolean equals(Object o) {
-        if (o instanceof Media) {
-            if (this.title == ((Media)o).title) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-        else {
-            return false;
-        }
+    	try {
+    		if (o instanceof Media) {
+    			if (this.title == ((Media)o).title) {
+    				return true;
+    			}
+    			else {
+    				return false;
+    			}
+    		}
+    		else {
+    			return false;
+    		}
+    	}
+    	catch (NullPointerException n) {
+    		return false;
+    	}
     }
     
 	public String getDetail(){

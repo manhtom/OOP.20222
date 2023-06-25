@@ -2,6 +2,8 @@ package hust.soict.cybersec.aims.disc;
 
 import java.util.*;
 
+import hust.soict.cybersec.aims.exception.PlayerException;
+
 public class CompactDisc extends Disc implements Playable {
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
@@ -47,16 +49,21 @@ public class CompactDisc extends Disc implements Playable {
         return total;
     }
 
-	public void play() {
+	public void play() throws PlayerException {
+
 		if (Integer.compare(this.getLength(), 0) == 0) {
-				System.out.println("The media you entered cannot be played.");
-				return;
+			throw new PlayerException("The CD you entered cannot be played because the CD length is invalid.");
 		}
         System.out.println("Playing CD: "+this.getTitle());
         System.out.printf("Genre: %s - Artist: %s - Length: %d%n", this.getCategory(), this.getArtist(), this.getLength());
     
 		for (Track i : tracks) {
-            i.play();
-        }
+			try {
+				i.play();
+			}
+			catch (PlayerException e) {
+				throw e;
+			}
+		}
 	}
 }

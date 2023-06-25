@@ -1,5 +1,7 @@
 package hust.soict.cybersec.aims.disc;
 
+import hust.soict.cybersec.aims.exception.*;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
@@ -23,10 +25,9 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	//	setID(dvd.getID());
 	//}
 
-	public void play() {
-		if (Integer.compare(this.getLength(), 0) == 0) {
-				System.out.println("The media you entered cannot be played.");
-				return;
+	public void play() throws PlayerException {
+		if (Integer.compare(this.getLength(), 0) <= 0) {
+			throw new PlayerException("The DVD you entered cannot be played because the length is invalid.");
 		}
 		System.out.println("Playing DVD: "+this.getTitle());
 		System.out.println("DVD length: "+this.getLength());

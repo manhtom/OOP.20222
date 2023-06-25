@@ -6,6 +6,8 @@ import javax.swing.*;
 import hust.soict.cybersec.aims.media.Media;
 import hust.soict.cybersec.aims.cart.Cart;
 import hust.soict.cybersec.aims.disc.*;
+import hust.soict.cybersec.aims.exception.PlayerException;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -60,9 +62,13 @@ public class MediaStore extends JPanel {
                     JOptionPane.showMessageDialog(null, String.format("Unable to add %s to cart", media.getTitle()), "AIMS", 3);
                 }
             }
-
+            
             else if (button.equals("Play")) {
-                ((Playable)media).play();
+				try {
+					((Playable)media).play();
+				} catch (PlayerException e1) {
+					e1.printStackTrace();
+				}
                 JLabel a = new JLabel(String.format("Playing %s", media.getTitle()), JLabel.CENTER);
                 JOptionPane o = new JOptionPane(a);
                 JDialog dialog = o.createDialog("AIMS");

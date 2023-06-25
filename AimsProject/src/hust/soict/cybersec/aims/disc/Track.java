@@ -1,5 +1,7 @@
 package hust.soict.cybersec.aims.disc;
 
+import hust.soict.cybersec.aims.exception.PlayerException;
+
 public class Track implements Playable {
     private String title;
     private int length;
@@ -17,7 +19,10 @@ public class Track implements Playable {
         return length;
     }
 
-	public void play() {
+	public void play() throws PlayerException {
+		if (Integer.compare(this.getLength(), 0) <= 0) {
+			throw new PlayerException("The track cannot be played because the length is invalid.");
+		}
 		System.out.println("Playing track: "+this.getTitle());
 		System.out.println("Track length: "+this.getLength());
 	}
