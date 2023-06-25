@@ -5,6 +5,7 @@ Object-oriented Programming 20222 Lab @ HUST <i>(April 2023 - June 2023)</i>
 Please find the work in the corresponding folders.
 
 - `AimsProject` folder: main work on AIMS Project (Lab02-Lab05)
-- `OtherProjects` folder: other submissions
+- `GUIProject` folder: Swing & JavaFX test project (Lab05)
+- `OtherProjects` folder: submissions other than aforementioned projects 
 
 Open the repository in [Eclipse](https://eclipseide.org/) for the best experience.
