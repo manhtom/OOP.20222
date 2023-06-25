@@ -2,6 +2,7 @@ package hust.soict.cybersec.aims.store;
 
 import hust.soict.cybersec.aims.cart.*;
 import hust.soict.cybersec.aims.disc.*;
+import hust.soict.cybersec.aims.exception.PlayerException;
 import hust.soict.cybersec.aims.media.*;
 import java.util.*;
 
@@ -10,6 +11,7 @@ public class Store {
     private int qty = 0;
 
 	public void addMedia() {
+
 		Scanner input = new Scanner(System.in);
 
         System.out.println("Please enter the following information to add media.");
@@ -21,6 +23,7 @@ public class Store {
         String category = input.nextLine();
         System.out.println("Please enter the cost");
         float cost = input.nextFloat();
+
         input.nextLine();  
         if (type.equals("DVD")) {
             System.out.println("Please enter the director");
@@ -177,7 +180,7 @@ public class Store {
 		}
     }
 
-	public void playMedia() {
+	public void playMedia() throws PlayerException {
 		Scanner input = new Scanner(System.in);
         System.out.println("Please enter the media name you want to play");
         String title = input.nextLine();
@@ -193,7 +196,7 @@ public class Store {
 					return;
 				}
 				else {
-					System.out.println("The media you entered cannot be played.");
+					System.out.println("The media you entered does not support playing.");
 					return;
 				}
 			}
@@ -201,7 +204,7 @@ public class Store {
 		System.out.println("Nothing has been played. Please recheck the name you entered.");
 	}
 
-    public void getDetail(Cart c) {
+    public void getDetail(Cart c) throws PlayerException {
 		Scanner input = new Scanner(System.in);
         System.out.println("Please enter the media name you want to explore more");
         String title = input.nextLine();

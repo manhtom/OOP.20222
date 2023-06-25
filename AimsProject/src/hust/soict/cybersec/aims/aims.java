@@ -1,6 +1,7 @@
 package hust.soict.cybersec.aims;
 
 import hust.soict.cybersec.aims.cart.*;
+import hust.soict.cybersec.aims.exception.PlayerException;
 import hust.soict.cybersec.aims.store.*;
 import java.util.*;
 
@@ -9,7 +10,7 @@ public class aims {
 	static Cart anOrder = new Cart();
 	static Scanner input = new Scanner(System.in);
 
-	public static void showMenu() {
+	public static void showMenu() throws PlayerException {
 		System.out.println("");
 		System.out.println("AIMS: ");
 		System.out.println("--------------------------------");
@@ -40,7 +41,7 @@ public class aims {
 		}
 	}
 
-	public static void storeMenu() {
+	public static void storeMenu() throws PlayerException {
 		System.out.println("");
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
@@ -75,7 +76,7 @@ public class aims {
 		}
 	}
 
-	public static void cartMenu() {
+	public static void cartMenu() throws PlayerException {
 		System.out.println("");
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
@@ -106,8 +107,7 @@ public class aims {
 			cartMenu();
 		}
 		else if (selected == 5) {
-			System.out.println("An order has been created. The cart will now be emptied.");
-			anOrder.empty();
+			anOrder.place();
 			cartMenu();
 		}
 		else {
@@ -115,7 +115,7 @@ public class aims {
 		}
 	}
 
-	public static void main(String[] args) { // preadded 3 products to the store
+	public static void main(String[] args) throws PlayerException { // preadded 3 products to the store
 		showMenu();
 		input.close();
 	}

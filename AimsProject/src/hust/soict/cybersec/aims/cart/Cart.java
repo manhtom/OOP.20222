@@ -1,16 +1,23 @@
 package hust.soict.cybersec.aims.cart;
 
-import hust.soict.cybersec.aims.store.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import hust.soict.cybersec.aims.media.*;
 import hust.soict.cybersec.aims.disc.*;
+import hust.soict.cybersec.aims.exception.PlayerException;
+
 import java.util.*;
 
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private List<Media> itemsOrdered=new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered= FXCollections.observableArrayList();
 
     public int getNumberofItemsOrdered() {
         return itemsOrdered.size();
+	}
+    
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
 	}
 
     public boolean addMedia(Media media) {
@@ -29,7 +36,7 @@ public class Cart {
      	}
 	}
 
-    private boolean removeMedia(Media media) {
+    public boolean removeMedia(Media media) {
         if (itemsOrdered.contains(media)) {
             itemsOrdered.remove(media);
             System.out.println("Removed product from the cart: "+media.getTitle());
@@ -41,7 +48,7 @@ public class Cart {
         }
     }
 
-    public void removeMedia() {
+    public void removeMedia() { // for console ui use only
         Scanner input = new Scanner(System.in);
         
         System.out.println("Please enter the media name you want to remove");
@@ -161,7 +168,7 @@ public class Cart {
 		itemsOrdered.clear();
 	}
 
-	public void playMedia() {
+	public void playMedia() throws PlayerException {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the media name you want to play");
 		String title = input.nextLine();
@@ -177,11 +184,17 @@ public class Cart {
 					return;
 				}
 				else {
-					System.out.println("The media you entered cannot be played.");
+					System.out.println("The media you entered does not support playing.");
 					return;
 				}
 			}
 		}
 		System.out.println("Nothing has been played. Please recheck the name you entered.");
+	}
+
+	public void place() {
+		System.out.println("An order has been created. The cart will now be emptied.");
+		this.empty();
+		
 	}
 }
